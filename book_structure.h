@@ -5,6 +5,8 @@
 #define TITLE_SIZE 50
 #define CATEGORY_SIZE 50
 #define MAX_CATEGORIES 10
+#define MIN_YEAR 751
+#define MAX_YEAR 2024
 
 extern char** categoryStrings;
 extern int categoryCount;
