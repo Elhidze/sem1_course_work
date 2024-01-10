@@ -26,10 +26,10 @@ void deleteBooksInRange(Library &lib);
 void flushTheStruct(Library &lib);
 bool isEmpty(const Library &lib);
 
-void saveToFile(const Library &lib);
+void saveToFile(const Library &lib, const std::string &fileName);
 void printFileError();
 int countNumberOfLines(FILE* file);
-void loadBookFromFile(Library &lib);
+void loadBookFromFile(Library &lib, const std::string &fileName);
 int scanBook(FILE* file, Book &book);
 
 void flushFile();

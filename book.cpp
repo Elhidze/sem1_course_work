@@ -70,7 +70,7 @@ void initBook(Book &book) {
             break;
         }
     }
-    strcpy (book. title, title);
+    strcpy(book.title, title);
     free(title);
 
     char *author = NULL;
@@ -129,7 +129,7 @@ void initBook(Book &book) {
 
     int year = 0;
     while (true) {
-        printf("Enter year: ");
+        printf("Enter year (between 751 and 2024): ");
         if (scanf("%d", &year) != 1 || year < 751 || year > 2024) {
             printf("Invalid input. Please try again.\n");
             fflush(stdin);
@@ -141,8 +141,7 @@ void initBook(Book &book) {
 
     double price = 0.0;
     while (true) {
-        printf("Enter price: ");
-
+        printf("Enter price (>0): ");
         if (scanf("%lf", &price) != 1 || price < 0) {
             printf("Invalid input. Please try again.\n");
             fflush(stdin);

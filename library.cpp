@@ -61,6 +61,10 @@ void printTheCollection(const Library &lib) {
 }
 
 void printBooksByAuthor(const Library *lib) {
+    if (lib->numberOfBooks == 0) {
+        printf("Library is empty!\n");
+        return;
+    }
 
     char author[AUTHOR_SIZE];
     while (true) {
@@ -101,6 +105,10 @@ bool isEmpty(const Library &lib) {
 }
 
 void deleteChoice(Library &lib) {
+    if (lib.numberOfBooks == 0) {
+        printf("Library is empty!\n");
+        return;
+    }
     int choice;
     while (true) {
         printf("Enter '1' if you want to delete one book or '2' if you want to delete books in range: ");
@@ -178,36 +186,37 @@ void flushTheStruct(Library &lib) {
     delete[] lib.books;
 }
 
-void saveToFile(const Library &lib) {
-    if (isEmpty(lib))
+void saveToFile(const Library &lib, const std::string &fileName) {
+    if (isEmpty(lib)) {
+        printf("Library is empty!\n");
         return;
-
-    char fileName[] = "/Users/elhidze/Desktop/Лабы прога/sem1_final/text.txt";
-    printf("Saving to the \'%s\' file...\n", fileName);
-    FILE* file = fopen(fileName, "a");
-    if (file) {
-        for (int i = 0; i < lib.numberOfBooks; i++) {
-            Book book = *lib.books[i];
-            fprintf(file, "%s %s %d %.2lf %d \n", book.author, book.title, book.year, book.price, book.category);
-        }
-        fclose(file);
-        printf("Save successful.\n");
-    } else {
-        printFileError();
     }
+
+    FILE *file = fopen(fileName.c_str(), "a");
+    if (!file) {
+        printf("ERROR: Couldn't open the file.\n");
+        return;
+    }
+
+    for (int i = 0; i < lib.numberOfBooks; i++) {
+        Book book = *lib.books[i];
+        fprintf(file, "%s %s %d %.2lf %s\n", book.author, book.title, book.year, book.price, book.category);
+    }
+
+    fclose(file);
+    printf("Save successful.\n");
 }
 
-void loadBookFromFile(Library &lib) {
-    printf("Loading from a \'%s\' file...\n", textTxt);
-
-    FILE* file = fopen(textTxt, "r");
+void loadBookFromFile(Library &lib, const std::string &fileName) {
+    FILE *file = fopen(fileName.c_str(), "r");
     if (!file) {
-        printFileError();
+        printf("ERROR: Couldn't open the file.\n");
+        printf("Using the default file instead.\n");
         return;
     }
 
     while (true) {
-        Book* book = new Book();
+        Book *book = new Book();
         int result = scanBook(file, *book);
 
         if (result == 1) {
@@ -221,7 +230,7 @@ void loadBookFromFile(Library &lib) {
     }
 
     if (fclose(file) == EOF) {
-        printFileError();
+        printf("ERROR: Couldn't close the file.\n");
     }
 }
 

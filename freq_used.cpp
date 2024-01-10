@@ -4,7 +4,7 @@
 using namespace std;
 
 void printDivLine() {
-    cout << "----------------------------------------------------" << endl;
+    printf("----------------------------------------------------\n");
 }
 
 void printUserInvitation() {
