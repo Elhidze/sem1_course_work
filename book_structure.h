@@ -24,11 +24,5 @@ void initBook(Book &book);
 void addCategory(const char* newCategory);
 void freeCategories();
 void addInitialCategories();
-//char* getTitle(Book &book);
-//float compareTitles(const Book& first, const Book& second);
-//float compareAuthors(const Book& first, const Book& second);
-//float compareYears(const Book& first, const Book& second);
-//float comparePrices(const Book& first, const Book& second);
-//float compareCategory(const Book& first, const Book& second);
 
 #endif

@@ -184,7 +184,7 @@ void saveToFile(const Library &lib) {
 
     char fileName[] = "/Users/elhidze/Desktop/Лабы прога/sem1_final/text.txt";
     printf("Saving to the \'%s\' file...\n", fileName);
-    FILE* file = fopen(fileName, "w");
+    FILE* file = fopen(fileName, "a");
     if (file) {
         for (int i = 0; i < lib.numberOfBooks; i++) {
             Book book = *lib.books[i];
@@ -212,11 +212,10 @@ void loadBookFromFile(Library &lib) {
 
         if (result == 1) {
             addNewBook(lib, book);
-            delete book;
-            break;
+            continue;
         } else {
             delete book;
-            printFileError();
+            printf("All books added from file.\n");
             break;
         }
     }

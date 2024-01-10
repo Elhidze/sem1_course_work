@@ -64,7 +64,7 @@ int main() {
                     freeCategories();
                     break;
                 case 'h':
-                    printf("Help\n");
+                    help();
                     break;
                 default:
                     printf("Invalid choice. Try again.\n");

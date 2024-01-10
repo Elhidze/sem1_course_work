@@ -27,6 +27,6 @@ void help() {
     printf("[6] - SORT books;\n");
     printf("[7] - Find books by author;\n");
     printDivLine();
-    printf("[9] - Exit;\n");
+    printf("[8] - Exit;\n");
     printDivLine();
 }
