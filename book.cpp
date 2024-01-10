@@ -11,7 +11,7 @@ void addCategory(const char* newCategory) {
         categoryStrings[categoryCount] = strdup(newCategory);
 
         if (categoryStrings[categoryCount] == nullptr) {
-            std::cout << "Failed to allocate memory for the new category.\n";
+            printf("Failed to allocate memory for the new category.\n");
             return;
         }
 

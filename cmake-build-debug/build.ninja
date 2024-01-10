@@ -51,37 +51,37 @@ build cmake_object_order_depends_target_sem1_final: phony || CMakeFiles/sem1_fin
 
 build CMakeFiles/sem1_final.dir/main.cpp.o: CXX_COMPILER__sem1_final_unscanned_Debug /Users/elhidze/Desktop/Лабы$ прога/sem1_final/main.cpp || cmake_object_order_depends_target_sem1_final
   DEP_FILE = CMakeFiles/sem1_final.dir/main.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  FLAGS = -fsanitize=address,undefined -fno-sanitize-recover=all -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/sem1_final.dir
   OBJECT_FILE_DIR = CMakeFiles/sem1_final.dir
 
 build CMakeFiles/sem1_final.dir/io_module.cpp.o: CXX_COMPILER__sem1_final_unscanned_Debug /Users/elhidze/Desktop/Лабы$ прога/sem1_final/io_module.cpp || cmake_object_order_depends_target_sem1_final
   DEP_FILE = CMakeFiles/sem1_final.dir/io_module.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  FLAGS = -fsanitize=address,undefined -fno-sanitize-recover=all -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/sem1_final.dir
   OBJECT_FILE_DIR = CMakeFiles/sem1_final.dir
 
 build CMakeFiles/sem1_final.dir/book.cpp.o: CXX_COMPILER__sem1_final_unscanned_Debug /Users/elhidze/Desktop/Лабы$ прога/sem1_final/book.cpp || cmake_object_order_depends_target_sem1_final
   DEP_FILE = CMakeFiles/sem1_final.dir/book.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  FLAGS = -fsanitize=address,undefined -fno-sanitize-recover=all -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/sem1_final.dir
   OBJECT_FILE_DIR = CMakeFiles/sem1_final.dir
 
 build CMakeFiles/sem1_final.dir/freq_used.cpp.o: CXX_COMPILER__sem1_final_unscanned_Debug /Users/elhidze/Desktop/Лабы$ прога/sem1_final/freq_used.cpp || cmake_object_order_depends_target_sem1_final
   DEP_FILE = CMakeFiles/sem1_final.dir/freq_used.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  FLAGS = -fsanitize=address,undefined -fno-sanitize-recover=all -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/sem1_final.dir
   OBJECT_FILE_DIR = CMakeFiles/sem1_final.dir
 
 build CMakeFiles/sem1_final.dir/library.cpp.o: CXX_COMPILER__sem1_final_unscanned_Debug /Users/elhidze/Desktop/Лабы$ прога/sem1_final/library.cpp || cmake_object_order_depends_target_sem1_final
   DEP_FILE = CMakeFiles/sem1_final.dir/library.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  FLAGS = -fsanitize=address,undefined -fno-sanitize-recover=all -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/sem1_final.dir
   OBJECT_FILE_DIR = CMakeFiles/sem1_final.dir
 
 build CMakeFiles/sem1_final.dir/sort_module.cpp.o: CXX_COMPILER__sem1_final_unscanned_Debug /Users/elhidze/Desktop/Лабы$ прога/sem1_final/sort_module.cpp || cmake_object_order_depends_target_sem1_final
   DEP_FILE = CMakeFiles/sem1_final.dir/sort_module.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  FLAGS = -fsanitize=address,undefined -fno-sanitize-recover=all -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/sem1_final.dir
   OBJECT_FILE_DIR = CMakeFiles/sem1_final.dir
 
@@ -94,7 +94,8 @@ build CMakeFiles/sem1_final.dir/sort_module.cpp.o: CXX_COMPILER__sem1_final_unsc
 # Link the executable sem1_final
 
 build sem1_final: CXX_EXECUTABLE_LINKER__sem1_final_Debug CMakeFiles/sem1_final.dir/main.cpp.o CMakeFiles/sem1_final.dir/io_module.cpp.o CMakeFiles/sem1_final.dir/book.cpp.o CMakeFiles/sem1_final.dir/freq_used.cpp.o CMakeFiles/sem1_final.dir/library.cpp.o CMakeFiles/sem1_final.dir/sort_module.cpp.o
-  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk
+  FLAGS = -fsanitize=address,undefined -fno-sanitize-recover=all -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk
+  LINK_FLAGS = -fsanitize=address,undefined
   OBJECT_DIR = CMakeFiles/sem1_final.dir
   POST_BUILD = :
   PRE_LINK = :
