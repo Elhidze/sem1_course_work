@@ -41,7 +41,21 @@ int main() {
                 case '2':
                     printf("You chose 2\n");
                     break;
-                    // ...
+                case '3':
+                    deleteChoice(myLib);
+                    break;
+                case '4':
+                    saveToFile(myLib);
+                    break;
+                case '5':
+                    loadBookFromFile(myLib);
+                    break;
+                case '6':
+                    insertionSort(myLib);
+                    break;
+                case '7':
+                    printBooksByAuthor(&myLib);
+                    break;
                 case '8':
                     printf("Exiting.\n");
                     break;
