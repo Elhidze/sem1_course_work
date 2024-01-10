@@ -43,29 +43,89 @@ void printBook(const Book &book) {
 }
 
 void initBook(Book &book) {
-    char title[TITLE_SIZE];
-    while (true) {
-        printf("Enter title: ");
-        if (scanf("%49s", title) != 1) {
-            printf("Input too large. Please try again.\n");
-            fflush(stdin);
-            continue;
-        }
-        break;
-    }
-    strcpy(book.title, title);
+    char *title = NULL;
+    size_t titleBuffer = 100;
+    size_t titleLen;
 
-    char author[AUTHOR_SIZE];
+    title = (char *) malloc(titleBuffer * sizeof(char));
     while (true) {
-        printf("Enter author: ");
-        if (scanf("%49s", author) != 1) {
-            printf("Input too large. Please try again.\n");
-            fflush(stdin);
-            continue;
+        printf("Input title (no more than 50 symbols): ");
+        if (fgets(title, (int)titleBuffer, stdin) == NULL) {
+            printf("Error reading input.\n");
+            break;
         }
-        break;
+        fflush(stdin);
+
+        titleLen = strlen(title);
+        if (titleLen > 0 && title[titleLen - 1] == '\n') {
+            title[titleLen - 1] = '\0';
+            titleLen--;
+        }
+
+        if (titleLen > TITLE_SIZE) {
+            printf("Input is too large. Please try again.\n");
+            titleBuffer += 100;
+            title = (char *) realloc(title, titleBuffer * sizeof(char));
+        } else {
+            break;
+        }
     }
-    strcpy(book.author, author);
+    strcpy (book. title, title);
+    free(title);
+
+    char *author = NULL;
+    size_t authorBuffer = 100;
+    size_t authorLen;
+
+    author = (char *) malloc(authorBuffer * sizeof(char));
+    while (true) {
+        printf("Input author (no more than 50 symbols): ");
+        if (fgets(author, (int)authorBuffer, stdin) == NULL) {
+            printf("Error reading input. \n");
+            break;
+        }
+        fflush(stdin);
+
+        authorLen = strlen(author);
+        if (authorLen > 0 && author[authorLen - 1] == '\n') {
+            author[authorLen - 1] = '\0';
+            authorLen--;
+        }
+
+        if (authorLen > AUTHOR_SIZE) {
+            printf("Input is too large. Please try again.\n");
+            authorBuffer += 100;
+            author = (char *) realloc(author, authorBuffer * sizeof(char));
+        } else {
+            break;
+        }
+    }
+    strcpy (book.author, author);
+    free(author);
+
+//    char title[TITLE_SIZE];
+//    while (true) {
+//        printf("Enter title: ");
+//        if (scanf("%49s", title) != 1) {
+//            printf("Input too large. Please try again.\n");
+//            fflush(stdin);
+//            continue;
+//        }
+//        break;
+//    }
+//    strcpy(book.title, title);
+//
+//    char author[AUTHOR_SIZE];
+//    while (true) {
+//        printf("Enter author: ");
+//        if (scanf("%49s", author) != 1) {
+//            printf("Input too large. Please try again.\n");
+//            fflush(stdin);
+//            continue;
+//        }
+//        break;
+//    }
+//    strcpy(book.author, author);
 
     int year = 0;
     while (true) {

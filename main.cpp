@@ -33,7 +33,6 @@ int main() {
 
         if (strlen(inputBuffer) == 1) {
             sscanf(inputBuffer, "%c", &choice);
-            fflush(stdin);
 
             switch (choice) {
                 case '1':
