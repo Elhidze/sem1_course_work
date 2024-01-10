@@ -33,13 +33,16 @@ int main() {
 
         if (strlen(inputBuffer) == 1) {
             sscanf(inputBuffer, "%c", &choice);
+            fflush(stdin);
 
             switch (choice) {
                 case '1':
-                    printf("You chose 1\n");
+                    printTheCollection(myLib);
                     break;
                 case '2':
-                    printf("You chose 2\n");
+                    Book newBook;
+                    initBook(newBook);
+                    addNewBook(myLib, &newBook);
                     break;
                 case '3':
                     deleteChoice(myLib);
@@ -58,6 +61,8 @@ int main() {
                     break;
                 case '8':
                     printf("Exiting.\n");
+                    flushCollection(myLib);
+                    freeCategories();
                     break;
                 case 'h':
                     printf("Help\n");
