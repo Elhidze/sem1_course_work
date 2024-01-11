@@ -3,6 +3,11 @@
 
 using namespace std;
 
+void clearInputBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
+
 void printDivLine() {
     printf("----------------------------------------------------\n");
 }

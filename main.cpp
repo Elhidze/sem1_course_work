@@ -6,10 +6,6 @@
 
 struct Book;
 
-void clearInputBuffer() {
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF);
-}
 
 int main(int argc, char* argv[]) {
 

@@ -54,6 +54,7 @@ void printTheCollection(const Library &lib) {
         cout << "    *** COLLECTION OF BOOKS ***" << endl;
         printDivLine();
         for (int i = 0; i < lib.numberOfBooks; i++) {
+            printf("\tBOOK - [%d]\n", i + 1);
             printBook(*lib.books[i]);
         }
         printDivLine();
@@ -120,6 +121,7 @@ void deleteChoice(Library &lib) {
         break;
     }
 
+    printTheCollection(lib);
     if (choice == 1) {
         deleteBook(lib);
     } else {

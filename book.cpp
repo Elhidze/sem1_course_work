@@ -132,24 +132,26 @@ void initBook(Book &book) {
         printf("Enter year (between 751 and 2024): ");
         if (scanf("%d", &year) != 1 || year < 751 || year > 2024) {
             printf("Invalid input. Please try again.\n");
-            fflush(stdin);
+            clearInputBuffer();
             continue;
         }
         break;
     }
     book.year = year;
+    clearInputBuffer();
 
     double price = 0.0;
     while (true) {
         printf("Enter price (>0): ");
         if (scanf("%lf", &price) != 1 || price < 0) {
             printf("Invalid input. Please try again.\n");
-            fflush(stdin);
+            clearInputBuffer();
             continue;
         }
         break;
     }
     book.price = price;
+    clearInputBuffer();
 
 
     int categoryID = 0;
