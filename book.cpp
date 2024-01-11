@@ -167,8 +167,16 @@ void initBook(Book &book) {
         printf("[%d] - New Category\n", categoryCount + 1);
         printDivLine();
 
-        printf("Choose category: [1...%d]\n", categoryCount + 1);
-        scanf("%d", &categoryID);
+        while (true) {
+            printf("Choose category: [1...%d]\n", categoryCount + 1);
+            if (scanf("%d", &categoryID) != 1) {
+                printf("Invalid input. Please try again.\n");
+                clearInputBuffer();
+                continue;
+            }
+            break;
+        }
+
 
         if (categoryID < 1 || categoryID > categoryCount + 1) {
             printf("You've entered a wrong category.\n");
@@ -191,4 +199,5 @@ void initBook(Book &book) {
             break;
         }
     }
+    printf("New book added successfully!\n");
 }
