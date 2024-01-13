@@ -14,10 +14,12 @@ void addCategory(const char* newCategory) {
             printf("Failed to allocate memory for the new category.\n");
             return;
         }
-
-        categoryCount++;
-        categoryStrings[categoryCount] = nullptr;
         printf("Category '%s' was added successfully.\n", newCategory);
+        categoryCount++;
+
+        if (categoryCount < MAX_CATEGORIES - 1) {
+            categoryStrings[categoryCount] = nullptr;
+        }
     } else {
         printf("Categories are already full.\n");
     }
@@ -157,8 +159,7 @@ void initBook(Book &book) {
     int categoryID = 0;
     while (true) {
         printDivLine();
-        printf("Available categories: ");
-        printDivLine();
+        printf("Available categories:\n");
 
         for (int i = 0; i < categoryCount; ++i) {
             printf("[%d] - %s\n", (i + 1), categoryStrings[i]);
@@ -181,16 +182,36 @@ void initBook(Book &book) {
         if (categoryID < 1 || categoryID > categoryCount + 1) {
             printf("You've entered a wrong category.\n");
         } else if (categoryID == categoryCount + 1) {
-            char newCategoryName[CATEGORY_SIZE];
+            fflush(stdin);
+            char *newCategoryName = NULL;
+            size_t catBuffer = 100;
+            size_t catLen;
+
+            newCategoryName = (char *) malloc(catBuffer * sizeof(char));
             while (true) {
-                printf("Enter the name for a new category: ");
-                if (scanf("%49s", newCategoryName) != 1) {
-                    printf("Invalid input. Please try again.\n");
-                    fflush(stdin);
-                    continue;
+                printf("Input category (no more than 50 symbols): ");
+                if (fgets(newCategoryName, (int)catBuffer, stdin) == NULL) {
+                    printf("Error reading input. \n");
+                    break;
                 }
-                break;
+
+
+                catLen = strlen(newCategoryName);
+                if (catLen > 0 && newCategoryName[catLen - 1] == '\n') {
+                    newCategoryName[catLen - 1] = '\0';
+                    catLen--;
+                }
+
+                if (catLen > CATEGORY_SIZE) {
+                    printf("Input is too large. Please try again.\n");
+                    catBuffer += 100;
+                    newCategoryName = (char *) realloc(newCategoryName, catBuffer * sizeof(char));
+                } else {
+                    break;
+                }
             }
+
+
             addCategory(newCategoryName);
             book.category = categoryStrings[categoryCount - 1];
             break;
