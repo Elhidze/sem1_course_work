@@ -62,6 +62,8 @@ void insertionSort(Library &lib) {
                     --j;
                 }
                 break;
+            default:
+                printf("Invalid choice. Please try again.\n");
         }
         lib.books[j + 1] = keyBook;
     }
