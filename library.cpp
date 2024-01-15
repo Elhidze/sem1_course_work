@@ -67,15 +67,32 @@ void printBooksByAuthor(const Library *lib) {
         return;
     }
 
-    char author[AUTHOR_SIZE];
+    char *author = NULL;
+    size_t authorBuffer = 100;
+    size_t authorLen;
+
+    author = (char *) malloc(authorBuffer * sizeof(char));
     while (true) {
-        printf("Enter author: ");
-        if (scanf("%49s", author) != 1) {
-            printf("Input too large. Please try again.\n");
-            fflush(stdin);
-            continue;
+        printf("Input author (no more than 50 symbols): ");
+        if (fgets(author, (int)authorBuffer, stdin) == NULL) {
+            printf("Error reading input. \n");
+            break;
         }
-        break;
+        fflush(stdin);
+
+        authorLen = strlen(author);
+        if (authorLen > 0 && author[authorLen - 1] == '\n') {
+            author[authorLen - 1] = '\0';
+            authorLen--;
+        }
+
+        if (authorLen > AUTHOR_SIZE) {
+            printf("Input is too large. Please try again.\n");
+            authorBuffer += 100;
+            author = (char *) realloc(author, authorBuffer * sizeof(char));
+        } else {
+            break;
+        }
     }
 
     printf("    *** BOOKS BY AUTHOR: %s ***\n", author);
@@ -94,6 +111,7 @@ void printBooksByAuthor(const Library *lib) {
     }
 
     printDivLine();
+    free(author);
 }
 
 bool isEmpty(const Library &lib) {
