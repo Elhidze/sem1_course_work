@@ -3,7 +3,7 @@
 #include "library_module.h"
 
 const int INIT_SIZE = 3;
-const char textTxt[] = "/Users/elhidze/Desktop/Лабы прога/sem1_final/text.txt";
+const char textTxt[] = "text.txt";
 
 void initBooksCollection(Library &lib) {
     lib.numberOfBooks = 0;
