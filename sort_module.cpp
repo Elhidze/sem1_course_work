@@ -16,10 +16,10 @@ void insertionSort(Library &lib) {
     printf("[3] - Year\n");
     printf("[4] - Price\n");
     printf("[5] - Category\n");
-    int choice = 0;
+    char choice[10];
     while(true) {
         printf("Enter the number of the field by which you want to sort the library: ");
-        if (scanf("%d", &choice) != 1 || choice < 1 || choice > 5) {
+        if (scanf("%9s", choice) != 1 or strlen(choice) != 1) {
             printf("Invalid input. Please try again.\n");
             fflush(stdin);
             continue;
@@ -31,7 +31,7 @@ void insertionSort(Library &lib) {
         Book *keyBook = lib.books[i];
         int j = i - 1;
 
-        switch (choice) {
+        switch (choice[0]) {
             case 1:
                 while (j >= 0 && strcmp(lib.books[j]->author, keyBook->author) > 0) {
                     lib.books[j + 1] = lib.books[j];

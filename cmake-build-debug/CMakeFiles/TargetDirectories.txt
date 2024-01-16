@@ -1,3 +1,3 @@
-/Users/elhidze/Desktop/Лабы прога/sem1_final/cmake-build-debug/CMakeFiles/sem1_final.dir
-/Users/elhidze/Desktop/Лабы прога/sem1_final/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/elhidze/Desktop/Лабы прога/sem1_final/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/elhidze/Desktop/Prog_labs/sem1_final/cmake-build-debug/CMakeFiles/sem1_final.dir
+/Users/elhidze/Desktop/Prog_labs/sem1_final/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/elhidze/Desktop/Prog_labs/sem1_final/cmake-build-debug/CMakeFiles/rebuild_cache.dir
