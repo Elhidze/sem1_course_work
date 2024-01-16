@@ -32,31 +32,31 @@ void insertionSort(Library &lib) {
         int j = i - 1;
 
         switch (choice[0]) {
-            case 1:
+            case '1':
                 while (j >= 0 && strcmp(lib.books[j]->author, keyBook->author) > 0) {
                     lib.books[j + 1] = lib.books[j];
                     --j;
                 }
                 break;
-            case 2:
+            case '2':
                 while (j >= 0 && strcmp(lib.books[j]->title, keyBook->title) > 0) {
                     lib.books[j + 1] = lib.books[j];
                     --j;
                 }
                 break;
-            case 3:
+            case '3':
                 while (j >= 0 && lib.books[j]->year > keyBook->year) {
                     lib.books[j + 1] = lib.books[j];
                     --j;
                 }
                 break;
-            case 4:
+            case '4':
                 while (j >= 0 && lib.books[j]->price > keyBook->price) {
                     lib.books[j + 1] = lib.books[j];
                     --j;
                 }
                 break;
-            case 5:
+            case '5':
                 while (j >= 0 && strcmp(lib.books[j]->category, keyBook->category) > 0) {
                     lib.books[j + 1] = lib.books[j];
                     --j;

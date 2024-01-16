@@ -128,24 +128,28 @@ void deleteChoice(Library &lib) {
         printf("Library is empty!\n");
         return;
     }
-    int choice;
-    while (true) {
-        printf("Enter '1' if you want to delete one book or '2' if you want to delete books in range: ");
-        if (scanf("%d", &choice) != 1 || choice < 1 || choice > 2) {
-            printf("Invalid input. Please try again\n");
-            fflush(stdin);
-            continue;
-        }
-        break;
-    }
 
-    printTheCollection(lib);
-    if (choice == 1) {
+    if (lib.numberOfBooks == 1) {
         deleteBook(lib);
     } else {
-        deleteBooksInRange(lib);
-    }
+        int choice;
+        while (true) {
+            printf("Enter '1' if you want to delete one book or '2' if you want to delete books in range: ");
+            if (scanf("%d", &choice) != 1 || choice < 1 || choice > 2) {
+                printf("Invalid input. Please try again\n");
+                fflush(stdin);
+                continue;
+            }
+            break;
+        }
 
+        printTheCollection(lib);
+        if (choice == 1) {
+            deleteBook(lib);
+        } else {
+            deleteBooksInRange(lib);
+        }
+    }
 }
 
 void deleteBook(Library &lib) {

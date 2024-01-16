@@ -6,7 +6,6 @@
 
 struct Book;
 
-
 int main(int argc, char* argv[]) {
 
     addInitialCategories();
@@ -18,7 +17,7 @@ int main(int argc, char* argv[]) {
 
     char choice[10];
 
-    std::string fileName = (argc > 1) ? argv[1] : "/Users/elhidze/Desktop/Лабы прога/sem1_final/text.txt";
+    std::string fileName = (argc > 1) ? argv[1] : "text.txt";
 
     do {
         printf("Type 'h' to see all the commands or enter your choice: ");
